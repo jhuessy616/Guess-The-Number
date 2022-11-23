@@ -20,7 +20,6 @@ function ask(questionText) {
 start();
 
 async function start() {
-  
   console.log(
     "Let's play a game where you (human) make up a number and I (computer) try to guess it. You may enter Q at anytime to quit the game."
   );
@@ -34,10 +33,10 @@ async function start() {
 
   console.log(
     "You picked a max value of " +
-      guessMax +
-      ". The range for this round will be 1-" +
-      guessMax +
-      "."
+    guessMax +
+    ". The range for this round will be 1-" +
+    guessMax +
+    "."
   );
   // let guessMax = 100;
   let middle = Math.floor((guessMin + parseInt(guessMax)) / 2);
@@ -56,48 +55,40 @@ async function start() {
 
     if (humanResponse.toUpperCase() == "Q") {
       continueGame = false;
-    }
-
-    if (humanResponse.toUpperCase() == "Y") {
+    } else if (
+      humanResponse.toUpperCase() == "Y"
+    ) {
       if (computerGuessedNumber == secretNumber) {
         console.log("Winner Winner Chicken Dinner");
         continueGame = false;
       } else {
-        console.log("Are you sure?");
+        console.log("Are you sure ?");
       }
-    }
+    } else if (humanResponse.toUpperCase() == "N") {
+      let highOrLow = await ask(
+        `Is the secret number higher (H) or lower (L)?`
+      );
 
-    if (humanResponse.toUpperCase() == "N") {
-      if (secretNumber == computerGuessedNumber) {
-        console.log("LIES! You are a sore loser!");
-      } else {
-        // let UserIsTruthful = true;
-        // while (UserIsTruthful) 
-          let highOrLow = await ask(
-            `Is the secret number higher (H) or lower (L)?`
-          );
-
-          if (
-            highOrLow.toUpperCase() == "H" &&
-            secretNumber > computerGuessedNumber
-          ) {
-            console.log("Ok I will guess higher");
-            guessMin = middle + 1;
-            middle = Math.floor((guessMin + guessMax) / 2);
-          } else if (
-            highOrLow.toUpperCase() == "L" &&
-            secretNumber < computerGuessedNumber
-          ) {
-            console.log("Ok I will guess lower");
-            guessMax = middle - 1;
-            middle = Math.floor((guessMin + guessMax) / 2);
-          } else {
-            console.log("Liar Liar Pants on Fire");
-            // UserIsTruthful = false;
-          }
-
-        
+      if (
+        highOrLow.toUpperCase() == "H" &&
+        secretNumber > computerGuessedNumber
+      ) {
+        console.log("Ok I will guess higher");
+        guessMin = middle + 1;
+        middle = Math.floor((guessMin + guessMax) / 2);
+      } else if (highOrLow.toUpperCase() == "Q") {
+        if (humanResponse.toUpperCase() == "Q") {
+          continueGame = false;
+        }
+      } else if (highOrLow.toUpperCase() == "L" && secretNumber < computerGuessedNumber) {
+        console.log("Ok I will guess lower");
+        guessMax = middle - 1;
+        middle = Math.floor((guessMin + guessMax) / 2);
       }
+      else {
+        console.log("Liar Liar Pants on Fire");
+      }
+
     }
   }
   // Now try and complete the program.
