@@ -42,13 +42,17 @@ async function start() {
   // let guessMax = 100;
   let middle = Math.floor((guessMin + parseInt(guessMax)) / 2);
 
+
   let secretNumber = await ask(
     "What is your secret number?\nI won't peek, I promise...\n"
   );
   console.log("You entered: " + secretNumber);
   // ! want to insert if it is beyond min and max
-
+  
+let numberOFGUESSES = 0
   while (continueGame) {
+     
+    numberOFGUESSES = numberOFGUESSES + 1;
     let computerGuessedNumber = middle;
     let humanResponse = await ask(
       `Is your number ${computerGuessedNumber}? Y for Yes, N for No, Q for quit`
@@ -60,7 +64,7 @@ async function start() {
 
     if (humanResponse.toUpperCase() == "Y") {
       if (computerGuessedNumber == secretNumber) {
-        console.log("Winner Winner Chicken Dinner");
+        console.log("Winner Winner Chicken Dinner! I Guessed your number in " + numberOFGUESSES + " tries");
         continueGame = false;
       } else {
         console.log("Are you sure?");
