@@ -64,6 +64,7 @@ async function start() {
       } else {
         console.log("Are you sure ?");
       }
+      
     } else if (humanResponse.toUpperCase() == "N") {
       let highOrLow = await ask(
         `Is the secret number higher (H) or lower (L)?`

@@ -53,3 +53,21 @@ process.exit();
 What if I want to quit from anywhere?
 
 Don't want to go back to start of loop after liar liar just ask if higher or lower
+
+
+counting error lying guesses as well how to not count repeats
+
+   function randomNumber(guessedNumber, generatedNumber) {
+  // YOUR CODE BELOW
+  console.log(generatedNumber);
+  if (guessedNumber > generatedNumber) {
+    return "Guess Lower";
+  } else if (guessedNumber < generatedNumber) {
+    return "Guess Higher";
+  } else {
+    return "Winner Winner Chicken Dinner";
+  }
+<!-- to fix, saying it got the answer with a certain amount of tries even if didnt win. must move text into winner if 
+ --> Done 
+
+ <!-- have quit not bring you to resart option put while loop outside of restart?  -->
