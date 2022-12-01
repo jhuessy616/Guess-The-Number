@@ -70,12 +70,16 @@ counting error lying guesses as well how to not count repeats
 <!-- to fix, saying it got the answer with a certain amount of tries even if didnt win. must move text into winner if 
  --> Done 
 
- <!-- have quit not bring you to resart option if you want to change the version
+ <!-- have quit bring you to resart option if you want to change the version
+  -->
+Done 
 
+ <!-- don't want a letter entered for maxvalue -->
+ Done 
 
- don't want a letter entered for maxvalue
+ 
 
- let guessMax = parseInt(
+ <!-- let guessMax = parseInt(
         await ask("What would you like the max value to be? (1 to what)?"), 10
       );
     console.log(typeof guessMax);
@@ -89,4 +93,4 @@ console.log("That is not a number please pick a number");
 guessMax = parseInt(
 await ask("What would you like the max value to be? (1 to what)?"), 10
 );
-}
+} -->

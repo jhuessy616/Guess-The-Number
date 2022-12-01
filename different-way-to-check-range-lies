@@ -1,3 +1,8 @@
+
+<!-- !  It can't be less than 8 but also more than 7 for example. Prefer my version because it doesn't allow any cheating.  -->
+This version would allow you to lie a few times before the computer catches the lie. 
+<!-- This was an early on idea and curiousity, my code has more updates now, but you could easily switch in these conditions if you only wanted to check range -->
+
 const readline = require("readline");
 const rl = readline.createInterface(process.stdin, process.stdout);
 
@@ -6,16 +11,10 @@ function ask(questionText) {
         rl.question(questionText, resolve);
     });
 }
+<!-- code below  -->
 
 // start();
 
-// async function start() {
-//   console.log("Let's play a game where you (human) make up a number and I (computer) try to guess it.")
-//   let secretNumber = await ask("What is your secret number?\nI won't peek, I promise...\n");
-//   console.log('You entered: ' + secretNumber);
-//   // Now try and complete the program.
-//   process.exit();
-// }
 
 start();
 
@@ -65,6 +64,7 @@ async function start() {
                 let highOrLow = await ask(`Is the secret number higher (H) or lower (L)?\n`);
 
                 if (highOrLow.toUpperCase() == "H") {
+                    <!-- !Here is the different code  -->
                     if (computerGuessedNumber === guessMax) {
                         console.log("You said it was higher than " + guessMax + ", so it can't also be lower than " + (guessMax + 1) + "!\n");
                     } else {
@@ -78,6 +78,7 @@ async function start() {
                     }
                 } else if (highOrLow.toUpperCase() === "L") {
                     if (computerGuessedNumber === guessMin) {
+                        <!-- !Here is the different code  -->
                         console.log("You said it was lower than " + guessMin + ", so it can't also be higher than " + (guessMin - 1) + "!\n");
                     } else {
                         console.log("Ok I will guess lower");

@@ -44,6 +44,15 @@ async function start() {
       let guessMax = parseInt(
         await ask("What would you like the max value to be? (1 to what)?")
       );
+      
+/*  Don't want it to accept a non number input, but we have to convert input to numbers to avoid concatenation. So how to weed out inputted letters because their type is now a number as well. Solution: if you divide it by a number the return is NaN. NaN is falsey. So make it not falsey it is true and will run the loop.   */
+    while (!(guessMax/2))
+{
+console.log("That is not a number please pick a number");
+guessMax = parseInt(
+await ask("What would you like the max value to be? (1 to what)?")
+);
+}
  
     
       //  computer telling us what range we picked.
