@@ -13,7 +13,7 @@ async function start() {
   //restart the game until the user says otherwise
   let restart = true;
 
-  //  restart looop
+  //  restart loop
   while (restart) {
     // asking which version the player wants to play
     let humanResponse = await ask(
@@ -22,7 +22,7 @@ async function start() {
 
     // computer guesses your secret number version
     if (humanResponse.toUpperCase().trim() == "C") {
-      // inro message
+      // intro message
       console.log(
         "Let's play a game where you (human) make up a number and I (computer) try to guess it."
       );
