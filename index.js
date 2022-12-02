@@ -44,8 +44,11 @@ async function start() {
       );
 
       /*  Don't want it to accept a non number input, but we have to convert input to numbers to avoid concatenation. So how to weed out inputted letters because their type is now a number as well. Solution: if you divide it by a number the return is NaN. NaN is falsey. So make it not falsey it is true and will run the loop.   */
-      while (!(guessMax / 2)) {
-        console.log("That is not a number please pick a number");
+      // Also no negative numbers or numbers < 1
+      while (!(guessMax / 2) || guessMax <= guessMin) {
+        console.log(
+          "That is not a number greater than 1 please pick a number greater than 1"
+        );
         guessMax = parseInt(
           await ask("What would you like the max value to be? (1 to what)?")
         );
@@ -186,9 +189,11 @@ async function start() {
         await ask("What would you like the max value to be? (1 to what)?")
       );
 
-      /*  Don't want it to accept a non number input, but we have to convert input to numbers to avoid concatenation. So how to weed out inputted letters because their type is now a number as well. Solution: if you divide it by a number the return is NaN. NaN is falsey. So make it not falsey it is true and will run the loop.   */
-      while (!(guessMax / 2)) {
-        console.log("That is not a number please pick a number");
+      /*  Don't want it to accept a non number input, also no numbers <1 */
+      while (!(guessMax / 2) || guessMax <= guessMin) {
+        console.log(
+          "That is not a number greater than 1 please pick a number greater than 1"
+        );
         guessMax = parseInt(
           await ask("What would you like the max value to be? (1 to what)?")
         );
@@ -205,8 +210,6 @@ async function start() {
       // this equation will generate a random number from 1-selected maximum
       let computerSecretNumber =
         Math.floor(Math.random() * (guessMax - guessMin + 1)) + 1;
-      // check if program is working by seeing the secret number. Only for coding purposes, will be commented out later.
-      // console.log(computerSecretNumber);
 
       // getting a numerical value for human guess.
       let humanGuessedNumber = await ask(

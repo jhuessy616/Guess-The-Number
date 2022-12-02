@@ -77,20 +77,7 @@ Done
  <!-- don't want a letter entered for maxvalue -->
  Done 
 
- 
+ <!-- To see secret number to see if program running correctly in version human is guessing  -->
 
- <!-- let guessMax = parseInt(
-        await ask("What would you like the max value to be? (1 to what)?"), 10
-      );
-    console.log(typeof guessMax);
-   
-    // let guessMaxNotNum = true
-
-    // ! This is where it's fucked! trying to make it so you can't enter k. 
-    while (!(typeof guessMax) == Number)
-{
-console.log("That is not a number please pick a number");
-guessMax = parseInt(
-await ask("What would you like the max value to be? (1 to what)?"), 10
-);
-} -->
+  // check if program is working by seeing the secret number. Only for coding purposes, will be commented out later.
+      // console.log(computerSecretNumber);
